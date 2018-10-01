@@ -1,0 +1,9 @@
+% Put in this file the names of the thesis group members.
+% One name per line, follow the name with the student number, 
+% separated by a comma (,)
+Arifur Rahman Sujon, 201305014
+Rezaul Huq, 201305021
+Md Faisal Uddin Sarker, 201305056
+Shadman Majid, 201305068
+Istiak Ahmed, 201305082
+

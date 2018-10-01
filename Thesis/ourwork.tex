@@ -1,0 +1,95 @@
+\chapter{Multiplication of 2X3 and 3X2 matrices using 11 multiplications}\label{intro}
+
+ In naive method, we already know that multiplication of two matrices having dimension 2X3 and 3X2 respectively requires 12 distinct multiplications. In this section, we will demonstrate how we can reduce the number of multiplications from 12 to 11. We have used Strassen's algorithm for this approach. 
+
+\section{Algorithm}
+Suppose we have two matrices A and B where dimension of A is 2X3 and dimension of B is 3X2. 
+
+So,
+
+ \[
+  A=
+  \left[ {\begin{array}{ccc}
+   A_{11} & A_{12} & A_{13}\\
+   A_{21} & A_{22} & A_{23}\\
+  \end{array} } \right]
+\]
+
+\[
+  B=
+  \left[ {\begin{array}{cc}
+   B_{11} & B_{12} \\
+   B_{21} & B_{22} \\
+   B_{31} & B_{32} \\
+  \end{array} } \right]
+\]
+
+Now, if we multiply the two matrices and get resultant matrix C, which is shown below:
+
+\[
+  C=
+  \left[ {\begin{array}{cc}
+   A_{11}B_{11}+ A_{12}B_{21}+A_{13}B_{31} & A_{11}B_{12}+A_{12}B_{22}+A_{13}B_{32} \\
+   A_{21}B_{11}+ A_{22}B_{21}+A_{23}B_{31} & A_{21}B_{12}+A_{22}B_{22}+A_{23}B_{32} \\
+  \end{array} } \right]
+\]
+
+ Let us also consider, \\
+    
+    \begin{center}  $M_{1}= A_{11}B_{11}+ A_{12}B_{21}   $ \end{center}
+    \begin{center}   $M_{2}=  A_{11}B_{12}+A_{12}B_{22} $ \end{center}
+    \begin{center}   $M_{3}= A_{21}B_{11}+ A_{22}B_{21} $ \end{center} 
+    \begin{center}   $M_{4}= A_{21}B_{12}+A_{22}B_{22} $ \end{center}
+
+So, matrix C can be written as follows.
+
+\[
+  C=
+  \left[ {\begin{array}{cc}
+   M_1+A_{13}B_{31} & M_2+A_{13}B_{32} \\
+   M_3+A_{23}B_{31} & M_4+A_{23}B_{32} \\
+  \end{array} } \right]
+\]
+    
+Now, create two new sub-matrices of dimension 2 by 2 from the original matrices as follows 
+   
+\[
+   A_{2 X 2}=
+  \left[ {\begin{array}{cc}
+   A_{11} & A_{12} \\
+   A_{21} & A_{22} \\
+  \end{array} } \right]
+\]
+
+\[
+   B_{2 X 2}=
+  \left[ {\begin{array}{cc}
+   B_{11} & B_{12} \\
+   B_{21} & B_{22} \\
+  \end{array} } \right]
+\]
+
+Using Strassen's  matrix multiplication algorithm in the above two matrices, we get the following matrix using 7 multiplication.
+
+\[
+   X_{2 X 2}=
+  \left[ {\begin{array}{cc}
+    A_{11}B_{11}+ A_{12}B_{21}  & A_{11}B_{12}+A_{12}B_{22} \\
+   A_{21}B_{11}+ A_{22}B_{21} & A_{21}B_{12}+A_{22}B_{22} \\
+  \end{array} } \right]
+\]
+
+
+\[
+  \hspace{-4cm}=
+  \left[ {\begin{array}{cc}
+   M_1 & M_2 \\
+   M_3 & M_4 \\
+  \end{array} } \right]
+\]
+
+In order to compute matrix C, we need four additional multiplication $A_{13}B_{31} , A_{13}B_{32} ,A_{23}B_{31}, A_{23}B_{32} .$
+
+So, in total we need 11 multiplications.
+
+       
